@@ -1,0 +1,264 @@
+.booking-calendar {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.calendar-header button {
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.calendar-header button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.calendar-header h2 {
+  color: var(--gray-900);
+  font-size: 24px;
+  text-align: center;
+}
+
+.warning {
+  background-color: #fef3c7;
+  border: 1px solid #fcd34d;
+  color: #92400e;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.info {
+  background-color: #dbeafe;
+  border: 1px solid #93c5fd;
+  color: #1e40af;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.seat-card {
+  padding: 20px;
+  border: 2px solid var(--gray-200);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  position: relative;
+}
+
+.seat-card.available {
+  border-color: var(--secondary);
+  background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
+}
+
+.seat-card.available:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.seat-card.booked {
+  border-color: var(--warning);
+  background: #fef3c7;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.seat-card.floater {
+  background: linear-gradient(135deg, #fef08a 0%, white 100%);
+}
+
+.seat-number {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--gray-900);
+  margin-bottom: 5px;
+}
+
+.seat-status {
+  font-size: 12px;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.floater-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #fbbf24;
+  color: #78350f;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.booking-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow-lg);
+  max-width: 400px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-modal h3 {
+  font-size: 20px;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+}
+
+.booking-modal p {
+  color: var(--gray-700);
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.modal-actions button:not(.secondary) {
+  background-color: var(--primary);
+  color: white;
+}
+
+.modal-actions button:not(.secondary):hover {
+  background-color: var(--primary-dark);
+}
+
+.modal-actions button.secondary {
+  background-color: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.modal-actions button.secondary:hover {
+  background-color: var(--gray-300);
+}
+
+.message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.3s ease;
+}
+
+.message.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.message button {
+  background: none;
+  color: inherit;
+  font-size: 20px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .calendar-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .calendar-header h2 {
+    order: -1;
+  }
+
+  .seats-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .booking-modal {
+    margin: 20px;
+  }
+}
